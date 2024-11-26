@@ -1,0 +1,13 @@
+services:
+  app:  
+    image: node:18-alpine3.19
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: paytm-app
+    working_dir: /paytm-app
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - "5000:5000"
